@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free YouTube Video Downloader - Download videos in HD, Full HD, 4K quality with different compression options. Fast, secure and easy to use.">
+    <meta name="keywords" content="YouTube downloader, video downloader, YouTube to mp4, YouTube converter, free YouTube downloader">
+    <meta name="ATIF SONU" content="YouTube Downloader Tool">
+    <meta name="robots" content="index, follow">
+    <title>YouTube Video Downloader | Fast & Free | HD Quality</title>
+    <link rel="canonical" href="https://yourdomain.com" />
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="YouTube Video Downloader | Fast & Free | HD Quality">
+    <meta property="og:description" content="Download YouTube videos in different formats and quality with our free online tool.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:image" content="https://yourdomain.com/images/yt-downloader-preview.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #ff0000;
+            --secondary-color: #282828;
+            --accent-color: #f1f1f1;
+            --text-color: #333333;
+            --light-text: #777777;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--accent-color);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo i {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        .logo-text span {
+            color: var(--primary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .download-form {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .input-group {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .input-group input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+        
+        .input-group button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .input-group button:hover {
+            background-color: #cc0000;
+        }
+        
+        .options-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .option-card {
+            flex: 1;
+            min-width: 150px;
+            background-color: var(--accent-color);
+            border-radius: 4px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .option-card.active {
+            border-color: var(--primary-color);
+            background-color: rgba(255, 0, 0, 0.1);
+        }
+        
+        .option-card h3 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+        
+        .option-card p {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+        
+        .download-btn {
+            display: block;
+            width: 100%;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        
+        .download-btn:hover {
+            background-color: #cc0000;
+        }
+        
+        .ad-container {
+            margin: 30px auto;
+            text-align: center;
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: var(--shadow);
+        }
+        
+        .ad-label {
+            font-size: 0.8rem;
+            color: var(--light-text);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .features {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background-color: var(--accent-color);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card p {
+            color: var(--light-text);
+        }
+        
+        .how-to-use {
+            padding: 60px 0;
+            background-color: var(--accent-color);
+        }
+        
+        .steps {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background-color: var(--primary-color);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .step-content p {
+            color: var(--light-text);
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #aaaaaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--white);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaaaaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 15px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .option-card {
+                min-width: 100%;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 40px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .download-form {
+                padding: 20px;
+            }
+            
+            .input-group {
+                flex-direction: column;
+            }
+            
+            .input-group input {
+                width: 100%;
+            }
+            
+            .input-group button {
+                width: 100%;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <i class="fab fa-youtube"></i>
+                    <span class="logo-text">YouTube<span>Downloader</span></span>
+                </a>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-to-use">How to Use</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Download YouTube Videos in HD Quality</h1>
+            <p>Fast, free and easy to use YouTube video downloader. Save videos in MP4, WebM, 3GP formats with different quality options.</p>
+            
+            <!-- Download Form -->
+            <div class="download-form">
+                <div class="form-group">
+                    <label for="video-url">Enter YouTube Video URL:</label>
+                    <div class="input-group">
+                        <input type="text" id="video-url" placeholder="https://www.youtube.com/watch?v=..." required>
+                        <button id="parse-btn">Parse</button>
+                    </div>
+                </div>
+                
+                <div id="video-info" style="display: none;">
+                    <div class="form-group">
+                        <label>Video Information:</label>
+                        <div id="video-details" style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                            <img id="video-thumbnail" src="" alt="Video Thumbnail" style="width: 120px; height: 90px; object-fit: cover; border-radius: 4px;">
+                            <div>
+                                <h3 id="video-title" style="font-size: 1.1rem; margin-bottom: 5px;"></h3>
+                                <p id="video-duration" style="font-size: 0.9rem; color: var(--light-text);"></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Select Quality & Compression:</label>
+                        <div class="options-group">
+                            <div class="option-card active" data-quality="high" data-compression="low">
+                                <h3>High Quality</h3>
+                                <p>Best quality (large file size)</p>
+                            </div>
+                            <div class="option-card" data-quality="medium" data-compression="medium">
+                                <h3>Balanced</h3>
+                                <p>Good quality with compression</p>
+                            </div>
+                            <div class="option-card" data-quality="low" data-compression="high">
+                                <h3>Compressed</h3>
+                                <p>Small file size (lower quality)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Select Format:</label>
+                        <div class="options-group">
+                            <div class="option-card active" data-format="mp4">
+                                <h3>MP4</h3>
+                                <p>Standard video format</p>
+                            </div>
+                            <div class="option-card" data-format="webm">
+                                <h3>WebM</h3>
+                                <p>Web optimized format</p>
+                            </div>
+                            <div class="option-card" data-format="3gp">
+                                <h3>3GP</h3>
+                                <p>For mobile devices</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="download-btn" id="download-btn">Download Video</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Container (Top) -->
+    <div class="container">
+        <div class="ad-container">
+            <div class="ad-label">Advertisement</div>
+            <!-- Replace with your Google AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-7019379995200041/5891062835"
+                crossorigin="anonymous"></script>
+            <!-- YouTube Downloader Top Ad -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-app-pub-7019379995200041/5891062835"
+                data-ad-slot="YOUR_AD_SLOT_ID"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Our YouTube Downloader</h2>
+                <p>Our tool offers the best features to download YouTube videos quickly and easily</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Fast Download</h3>
+                    <p>Download YouTube videos at high speed with our optimized servers.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Secure</h3>
+                    <p>100% safe to use with no registration required. No malware or viruses.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Works perfectly on all devices including smartphones and tablets.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud-download-alt"></i>
+                    </div>
+                    <h3>Multiple Formats</h3>
+                    <p>Download in MP4, WebM, 3GP and other popular video formats.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Quality Options</h3>
+                    <p>Choose from different quality levels from 144p to 4K resolution.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <h3>Audio Extraction</h3>
+                    <p>Extract audio from videos and save as MP3 or other audio formats.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Container (Middle) -->
+    <div class="container">
+        <div class="ad-container">
+            <div class="ad-label">Advertisement</div>
+            <!-- Replace with your Google AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-7019379995200041/5699491147"
+                crossorigin="anonymous"></script>
+            <!-- YouTube Downloader Middle Ad -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-app-pub-7019379995200041/5699491147"
+                data-ad-slot="YOUR_AD_SLOT_ID_2"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <!-- How to Use Section -->
+    <section class="how-to-use" id="how-to-use">
+        <div class="container">
+            <div class="section-title">
+                <h2>How to Download YouTube Videos</h2>
+                <p>Follow these simple steps to download your favorite YouTube videos</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Copy YouTube Video URL</h3>
+                        <p>Go to YouTube and copy the URL of the video you want to download from the address bar.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Paste URL in the Box Above</h3>
+                        <p>Paste the copied YouTube video URL into the input field on our downloader tool.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Select Quality & Format</h3>
+                        <p>Choose your preferred video quality and format from the available options.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Click Download Button</h3>
+                        <p>Click the download button and wait for the processing to complete.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Save Your Video</h3>
+                        <p>Once ready, your video will start downloading automatically to your device.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="features" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our YouTube video downloader</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">
+                        <i class="fas fa-question"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>Is this YouTube downloader free to use?</h3>
+                        <p>Yes, our YouTube video downloader is completely free to use with no hidden charges. You can download as many videos as you want without any limitations.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">
+                        <i class="fas fa-question"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>What video qualities are available for download?</h3>
+                        <p>Our tool supports downloading YouTube videos in various qualities including 144p, 240p, 360p, 480p, 720p (HD), 1080p (Full HD), 2K, and 4K (Ultra HD) depending on the original video quality.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">
+                        <i class="fas fa-question"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>Can I download YouTube videos on mobile?</h3>
+                        <p>Yes, our YouTube downloader is fully responsive and works perfectly on all mobile devices including smartphones and tablets running Android or iOS.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">
+                        <i class="fas fa-question"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>Is it legal to download YouTube videos?</h3>
+                        <p>The legality of downloading YouTube videos depends on your purpose and location. We recommend only downloading videos you have rights to or for personal use under fair use policies.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">
+                        <i class="fas fa-question"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>Can I download private YouTube videos?</h3>
+                        <p>No, our tool can only download publicly available YouTube videos. Private or age-restricted videos that require login cannot be downloaded.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Container (Bottom) -->
+    <div class="container">
+        <div class="ad-container">
+            <div class="ad-label">Advertisement</div>
+            <!-- Replace with your Google AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-7019379995200041/3468079472"
+                crossorigin="anonymous"></script>
+            <!-- YouTube Downloader Bottom Ad -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-app-pub-7019379995200041/3468079472"
+                data-ad-slot="YOUR_AD_SLOT_ID_3"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>YouTube Downloader</h3>
+                    <p>The fastest way to download YouTube videos in multiple formats and qualities. Free, secure and easy to use.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-to-use">How to Use</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Supported Formats</h3>
+                    <ul>
+                        <li><a href="#">MP4 Videos</a></li>
+                        <li><a href="#">WebM Videos</a></li>
+                        <li><a href="#">3GP Videos</a></li>
+                        <li><a href="#">MP3 Audio</a></li>
+                        <li><a href="#">M4A Audio</a></li>
+                        <li><a href="#">AAC Audio</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> support@youtubedownloader.com</li>
+                        <li><i class="fas fa-globe"></i> www.youtubedownloader.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 YouTube Downloader. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const parseBtn = document.getElementById('parse-btn');
+        const downloadBtn = document.getElementById('download-btn');
+        const videoUrlInput = document.getElementById('video-url');
+        const videoInfoSection = document.getElementById('video-info');
+        const videoThumbnail = document.getElementById('video-thumbnail');
+        const videoTitle = document.getElementById('video-title');
+        const videoDuration = document.getElementById('video-duration');
+        const qualityOptions = document.querySelectorAll('[data-quality]');
+        const formatOptions = document.querySelectorAll('[data-format]');
+        
+        // Current selection
+        let currentQuality = 'high';
+        let currentCompression = 'low';
+        let currentFormat = 'mp4';
+        
+        // Event Listeners
+        parseBtn.addEventListener('click', parseVideoUrl);
+        downloadBtn.addEventListener('click', downloadVideo);
+        
+        // Add click event to quality options
+        qualityOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                qualityOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                currentQuality = option.dataset.quality;
+                currentCompression = option.dataset.compression;
+            });
+        });
+        
+        // Add click event to format options
+        formatOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                formatOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                currentFormat = option.dataset.format;
+            });
+        });
+        
+        // Functions
+        function parseVideoUrl() {
+            const videoUrl = videoUrlInput.value.trim();
+            
+            if (!videoUrl) {
+                alert('Please enter a YouTube video URL');
+                return;
+            }
+            
+            // Validate YouTube URL
+            if (!isValidYouTubeUrl(videoUrl)) {
+                alert('Please enter a valid YouTube video URL');
+                return;
+            }
+            
+            // Simulate parsing (in a real app, you would call your backend API)
+            simulateParsing(videoUrl);
+        }
+        
+        function isValidYouTubeUrl(url) {
+            const pattern = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
+            return pattern.test(url);
+        }
+        
+        function simulateParsing(videoUrl) {
+            // Show loading state
+            parseBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Parsing...';
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                // Extract video ID (simplified)
+                let videoId = '';
+                if (videoUrl.includes('v=')) {
+                    videoId = videoUrl.split('v=')[1].split('&')[0];
+                } else if (videoUrl.includes('youtu.be/')) {
+                    videoId = videoUrl.split('youtu.be/')[1].split('?')[0];
+                }
+                
+                if (!videoId) {
+                    alert('Could not extract video ID from URL');
+                    parseBtn.textContent = 'Parse';
+                    return;
+                }
+                
+                // Set video details (in a real app, these would come from your API)
+                videoThumbnail.src = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+                videoTitle.textContent = 'Sample YouTube Video Title';
+                videoDuration.textContent = '10:30';
+                
+                // Show video info section
+                videoInfoSection.style.display = 'block';
+                
+                // Reset parse button
+                parseBtn.textContent = 'Parse';
+                
+                // Scroll to video info
+                videoInfoSection.scrollIntoView({ behavior: 'smooth' });
+            }, 1500);
+        }
+        
+        function downloadVideo() {
+            const videoUrl = videoUrlInput.value.trim();
+            
+            if (!videoUrl) {
+                alert('Please enter a YouTube video URL first');
+                return;
+            }
+            
+            // Show loading state
+            downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing Download...';
+            
+            // Simulate processing delay
+            setTimeout(() => {
+                // In a real app, this would redirect to your download endpoint
+                alert(`Download would start now with these settings:\nQuality: ${currentQuality}\nCompression: ${currentCompression}\nFormat: ${currentFormat}`);
+                
+                // Reset download button
+                downloadBtn.textContent = 'Download Video';
+            }, 2000);
+        }
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navMenu.style.display = 'flex';
+            } else {
+                navMenu.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
